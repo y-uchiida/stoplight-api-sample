@@ -156,6 +156,23 @@ paths:
       description: Create a new user.
       tags:
         - Users
+  /posts:
+    get:
+      summary: Get users posts data
+      tags:
+        - Posts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ./Post.yaml
+      operationId: get-user-posts
+      description: Get Posts Data
+      parameters: []
 components:
   schemas:
     User:
@@ -203,4 +220,5 @@ components:
       type: apiKey
       in: cookie
 tags:
+  - name: Posts
   - name: Users
