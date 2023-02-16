@@ -1,4 +1,6 @@
 type: object
+x-stoplight:
+  id: d358ff6017682
 properties:
   id:
     type: string
