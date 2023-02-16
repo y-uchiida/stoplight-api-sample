@@ -1,0 +1,27 @@
+type: object
+properties:
+  id:
+    type: string
+  title:
+    type: string
+  content:
+    type: string
+  user_id:
+    type: integer
+  created_at:
+    type: string
+x-examples:
+  Example 1:
+    id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+    title: string
+    content: string
+    user_id: 0
+    created_at: '2019-08-24T14:15:22Z'
+examples:
+  - id: string
+    title: string
+    content: string
+    user_id: 124
+    created_at: string
+x-tags:
+  - Posts
