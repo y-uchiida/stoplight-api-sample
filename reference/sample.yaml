@@ -8,7 +8,10 @@ info:
   description: Stoplight Studio によって作成した、Sample API です
   summary: Stoplight Studio によって作成した、Sample API です
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'http://localhost:3080'
+    description: スタブサーバ
+  - description: ローカル環境API
+    url: 'http://localhost'
 paths:
   '/users/{userId}':
     parameters:
@@ -194,5 +197,10 @@ components:
         - lastName
         - email
         - emailVerified
+  securitySchemes:
+    session:
+      name: サーバーサイドセッション
+      type: apiKey
+      in: cookie
 tags:
   - name: Users
