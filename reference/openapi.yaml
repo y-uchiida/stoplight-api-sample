@@ -26,6 +26,23 @@ paths:
         name: id
         in: path
         required: true
+  /api/posts/{post_id}:
+    parameters:
+      - schema:
+          type: number
+        name: postId
+        in: path
+        required: true
+    get:
+      summary: ""
+      operationId: post-get-sample
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "./SampleComponent.yaml"
   /api/sample:
     post:
       summary: ""
@@ -37,16 +54,6 @@ paths:
             application/json:
               schema:
                 $ref: "./SampleComponent.yaml"
-                # $ref: "#/components/schemas/Sample"
-                # type: object
-                # properties:
-                #   id:
-                #     type: number
-                #   status:
-                #     type: string
-                # required:
-                #   - id
-                #   - status
       requestBody:
         content:
           application/json:

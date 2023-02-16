@@ -23,3 +23,7 @@ Route::post('sample', function (Request $request) {
         'id' => (int)$request->id,
     ]);
 });
+
+route::get('/posts/{post_id}', function() {
+    return response()->json([], 200);
+});
