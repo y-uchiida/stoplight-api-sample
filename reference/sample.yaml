@@ -4,6 +4,9 @@ x-stoplight:
 info:
   title: sample
   version: '1.0'
+  contact: {}
+  description: Stoplight Studio によって作成した、Sample API です
+  summary: Stoplight Studio によって作成した、Sample API です
 servers:
   - url: 'http://localhost:3000'
 paths:
@@ -17,7 +20,8 @@ paths:
         description: Id of an existing user.
     get:
       summary: Get User Info by User ID
-      tags: []
+      tags:
+        - Users
       responses:
         '200':
           description: User Found
@@ -91,6 +95,8 @@ paths:
                   lastName: Baker
                   dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
+      tags:
+        - Users
   /user:
     post:
       summary: Create New User
@@ -145,12 +151,13 @@ paths:
                   dateOfBirth: '1996-08-24'
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
+      tags:
+        - Users
 components:
   schemas:
     User:
       title: User
       type: object
-      description: ''
       examples:
         - id: 142
           firstName: Alice
@@ -187,3 +194,5 @@ components:
         - lastName
         - email
         - emailVerified
+tags:
+  - name: Users
