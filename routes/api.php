@@ -24,6 +24,6 @@ Route::post('sample', function (Request $request) {
     ]);
 });
 
-route::get('/posts/{post_id}', function() {
+route::get('/posts/{postId}', function() {
     return response()->json([], 200);
 });
