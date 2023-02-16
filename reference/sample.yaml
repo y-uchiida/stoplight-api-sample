@@ -172,6 +172,26 @@ paths:
       operationId: get-user-posts
       description: Get Posts Data
       parameters: []
+  '/posts/{postId}':
+    parameters:
+      - schema:
+          type: string
+        name: postId
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags:
+        - Posts
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./Post.yaml
+      operationId: get-posts-postId
+      description: Obtains the posting data for the specified ID
 components:
   schemas:
     User:
