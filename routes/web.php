@@ -20,18 +20,3 @@ Route::get('/', function () {
 route::get('/posts', function() {
     return response()->json([], 200);
 });
-
-route::get('/posts/{postId}', function() {
-    return response()->json([], 200);
-});
-
-route::get('/users/{post_id}', function() {
-    return response()->json([], 200);
-});
-
-route::get('/api/status', function () {
-    return response()->json(
-        ['status' => 'OK'],
-        500
-    );
-});
