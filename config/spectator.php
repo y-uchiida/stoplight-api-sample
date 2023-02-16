@@ -64,5 +64,5 @@ return [
     |
     */
 
-    'suppress_errors' => true,
+    'suppress_errors' => false,
 ];
