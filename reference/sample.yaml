@@ -214,6 +214,8 @@ components:
         - lastName
         - email
         - emailVerified
+    Post:
+      $ref: ./Post.yaml
   securitySchemes:
     session:
       name: サーバーサイドセッション
