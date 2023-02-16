@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 route::get('/posts', function() {
-    return response()->json([]);
+    return response()->json([], 200);
 });
