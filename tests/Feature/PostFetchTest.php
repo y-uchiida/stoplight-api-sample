@@ -15,7 +15,7 @@ class PostFetchTest extends TestCase
         // ファイルパスの指定は、config/spectator.php で行っている
         Spectator::using('sample.yaml');
 
-        $response = $this->getJson('/posts');
+        $response = $this->getJson('/api/posts');
         $response->assertValidResponse(200);
     }
 
@@ -26,7 +26,6 @@ class PostFetchTest extends TestCase
         Spectator::using('sample.yaml');
 
         $response = $this->getJson('/api/posts/1');
-        dump('user_1', $response->json());
         $response->assertValidResponse(200);
     }
 }
