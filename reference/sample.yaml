@@ -3,41 +3,49 @@ x-stoplight:
   id: bulvwt9bl88m1
 info:
   title: sample
-  version: "1.0"
+  version: '1.0'
   contact: {}
   description: Stoplight Studio によって作成した、Sample API です
 servers:
-  - url: "http://localhost:3080"
+  - url: 'http://localhost:3080'
     description: スタブサーバ
   - description: ローカル環境API
-    url: "http://localhost"
+    url: 'http://localhost'
 paths:
-  "/api/users":
+  /api/users:
     get:
       summary: Get User Info List
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/User"
+                  $ref: '#/components/schemas/User'
               examples:
                 Get User Alice Smith:
                   value:
-                    id: 142
-                    firstName: Alice
-                    lastName: Smith
-                    email: alice.smith@gmail.com
-                    dateOfBirth: "1997-10-31"
-                    emailVerified: true
-                    signUpDate: "2019-08-24"
-
-  "/api/users/{userId}":
+                    - id: 142
+                      firstName: Alice
+                      lastName: Smith
+                      email: alice.smith@gmail.com
+                      dateOfBirth: '1997-10-31'
+                      emailVerified: true
+                      signUpDate: '2019-08-24'
+                    - id: 999
+                      firstName: Simon
+                      lastName: Tarner
+                      email: simon.tarner@example.com
+                      dateOfBirth: '2000-08-10'
+                      emailVerified: false
+                      signUpDate: '2015-01-10'
+      description: get user list
+      operationId: get-users-operation
+  '/api/users/{userId}':
     parameters:
       - schema:
           type: integer
@@ -50,12 +58,12 @@ paths:
       tags:
         - Users
       responses:
-        "200":
+        '200':
           description: User Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
               examples:
                 Get User Alice Smith:
                   value:
@@ -63,10 +71,10 @@ paths:
                     firstName: Alice
                     lastName: Smith
                     email: alice.smith@gmail.com
-                    dateOfBirth: "1997-10-31"
+                    dateOfBirth: '1997-10-31'
                     emailVerified: true
-                    signUpDate: "2019-08-24"
-        "404":
+                    signUpDate: '2019-08-24'
+        '404':
           description: User Not Found
       operationId: get-users-userId
       description: Retrieve the information of the user with the matching user ID.
@@ -74,12 +82,12 @@ paths:
       summary: Update User Information
       operationId: patch-users-userId
       responses:
-        "200":
+        '200':
           description: User Updated
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
               examples:
                 Updated User Rebecca Baker:
                   value:
@@ -87,12 +95,12 @@ paths:
                     firstName: Rebecca
                     lastName: Baker
                     email: rebecca@gmail.com
-                    dateOfBirth: "1985-10-02"
+                    dateOfBirth: '1985-10-02'
                     emailVerified: false
-                    createDate: "2019-08-24"
-        "404":
+                    createDate: '2019-08-24'
+        '404':
           description: User Not Found
-        "409":
+        '409':
           description: Email Already Taken
       description: Update the information of an existing user.
       requestBody:
@@ -107,7 +115,7 @@ paths:
                   type: string
                 email:
                   type: string
-                  description: "If a new email is given, the user's email verified property will be set to false."
+                  description: 'If a new email is given, the user''s email verified property will be set to false.'
                 dateOfBirth:
                   type: string
             examples:
@@ -120,7 +128,7 @@ paths:
               Update Last Name & Date of Birth:
                 value:
                   lastName: Baker
-                  dateOfBirth: "1985-10-02"
+                  dateOfBirth: '1985-10-02'
         description: Patch user properties to update.
       tags:
         - Users
@@ -129,12 +137,12 @@ paths:
       summary: Create New User
       operationId: post-user
       responses:
-        "200":
+        '200':
           description: User Created
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/User"
+                $ref: '#/components/schemas/User'
               examples:
                 New User Bob Fellow:
                   value:
@@ -142,12 +150,12 @@ paths:
                     firstName: Bob
                     lastName: Fellow
                     email: bob.fellow@gmail.com
-                    dateOfBirth: "1996-08-24"
+                    dateOfBirth: '1996-08-24'
                     emailVerified: false
-                    createDate: "2020-11-18"
-        "400":
+                    createDate: '2020-11-18'
+        '400':
           description: Missing Required Information
-        "409":
+        '409':
           description: Email Already Taken
       requestBody:
         content:
@@ -175,7 +183,7 @@ paths:
                   firstName: Bob
                   lastName: Fellow
                   email: bob.fellow@gmail.com
-                  dateOfBirth: "1996-08-24"
+                  dateOfBirth: '1996-08-24'
         description: Post the necessary fields for the API to create a new user.
       description: Create a new user.
       tags:
@@ -186,7 +194,7 @@ paths:
       tags:
         - Posts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -197,7 +205,7 @@ paths:
       operationId: get-user-posts
       description: Get Posts Data
       parameters: []
-  "/api/posts/{postId}":
+  '/api/posts/{postId}':
     parameters:
       - schema:
           type: string
@@ -209,7 +217,7 @@ paths:
       tags:
         - Posts
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -217,7 +225,6 @@ paths:
                 $ref: ./Post.yaml
       operationId: get-posts-postId
       description: Obtains the posting data for the specified ID
-
 components:
   schemas:
     User:
@@ -237,7 +244,7 @@ components:
         dateOfBirth:
           type: string
           format: date
-          example: "1997-10-31"
+          example: '1997-10-31'
         emailVerified:
           type: boolean
           description: Set to true if the user's email has been verified.
